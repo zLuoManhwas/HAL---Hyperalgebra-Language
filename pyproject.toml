@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hal-hyperalgebra"
+version = "0.1.0"
+description = "Typed categorical language and numeric backends for hypergraphs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+jit = ["numba>=0.59"]
+test = ["pytest>=7.4"]
+all = ["numba>=0.59", "pytest>=7.4"]
+
+[tool.setuptools]
+packages = ["hal"]
+
+[tool.setuptools.package-data]
+hal = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
